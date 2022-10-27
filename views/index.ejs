@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Url</title>
+    <link href="./style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="wrapper">
+    <h1 class="title">URL Shorter</h1>
+    <div class="form-wrapper">
+        <form action="/generate" method="POST">
+            <label for="url">
+                <input  name="url" id="url" />
+            </label>
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+    <% if(links.length !== 0){ %>
+    <table>
+        <thead>
+            <tr>
+                <th>Full URL</th>
+                <th>Short URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% links.forEach(link => {%>
+            <tr>
+                <th><a href="<%= link.url %>"><%= link.url %></a></th>
+                <th><a href="<%= link.token %>"><%= link.token %></a></th>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } %>
+</div>
+</body>
+</html>
